@@ -77,15 +77,15 @@ int main()
     displayDirectory(globalDirectory, initialFile, 0);
     std::flush(std::cout);
     // //============================================================
-    // deleteItem(14, initialFile, globalDirectory);
-    // deleteItem(13, initialFile, globalDirectory);
-    // displayDirectory(globalDirectory, initialFile, 0);
-    // std::flush(std::cout);
+    deleteItem(14, initialFile, globalDirectory);
+    deleteItem(13, initialFile, globalDirectory);
+    displayDirectory(globalDirectory, initialFile, 0);
+    std::flush(std::cout);
     // //============================================================
-    // insertItem(DataItem(158, 5), initialFile, globalDirectory);
-    // displayDirectory(globalDirectory, initialFile, 0);
-    // insertItem(DataItem(3, 9), initialFile, globalDirectory);
-    // displayDirectory(globalDirectory, initialFile, 0);
-    // std::flush(std::cout);
+    insertItem(DataItem(158, 5), initialFile, globalDirectory);
+    displayDirectory(globalDirectory, initialFile, 0);
+    insertItem(DataItem(3, 9), initialFile, globalDirectory);
+    displayDirectory(globalDirectory, initialFile, 0);
+    std::flush(std::cout);
     return 0;
 }
