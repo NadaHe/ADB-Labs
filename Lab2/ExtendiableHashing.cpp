@@ -313,38 +313,39 @@ int deleteItem(int key, Bucket &currentBucket, GlobalDirectory &globaldirectory)
 		// loop on the bucket to find the key
 		return deleteItemFromBucket(currentBucket, key);
 	}
-	// case 0 : deleting from the intial bucket where there's no global directory
-	int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
+	
 	// case 1 : deleting from global directory at level 1 and shrinks back to the inital bucket
+	int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
 	if (globaldirectory.globalDepth == 1)
 	{
 		// loop on the bucket to find the key
-		return deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
+		deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
+		checkDirectoryMinimization(globaldirectory);
 	}
 	// case 2: deleting from directory and table shrinks
-	if (globaldirectory.globalDepth > 1)
-	{
-		// loop on the bucket to find the key
-		int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
-		int deleted = deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
-		if (deleted == 1)
-		{
-			checkDirectoryMinimization(globaldirectory);
-			return 1;
-		}
-	}
-	// case 3 : deleting from directory and buckets pointers shrink
-	if (globaldirectory.globalDepth > globaldirectory.entry[hashedKey]->localDepth)
-	{
-		// loop on the bucket to find the key
-		int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
-		int deleted = deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
-		if (deleted == 1)
-		{
-			checkDirectoryMinimization(globaldirectory);
-			return 1;
-		}
-	}
+	// if (globaldirectory.globalDepth > 1)
+	// {
+	// 	// loop on the bucket to find the key
+	// 	int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
+	// 	int deleted = deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
+	// 	if (deleted == 1)
+	// 	{
+	// 		checkDirectoryMinimization(globaldirectory);
+	// 		return 1;
+	// 	}
+	// }
+	// // case 3 : deleting from directory and buckets pointers shrink
+	// if (globaldirectory.globalDepth > globaldirectory.entry[hashedKey]->localDepth)
+	// {
+	// 	// loop on the bucket to find the key
+	// 	int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
+	// 	int deleted = deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
+	// 	if (deleted == 1)
+	// 	{
+	// 		checkDirectoryMinimization(globaldirectory);
+	// 		return 1;
+	// 	}
+	// }
 	return 0;
 }
 
