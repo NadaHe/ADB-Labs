@@ -52,40 +52,44 @@ int main()
     std::flush(std::cout);
     displayDirectory(globalDirectory, initialFile, 0);
     std::flush(std::cout);
+    std::cout << "After Delete \n";
+    deleteItem(42, initialFile, globalDirectory);
+    displayDirectory(globalDirectory, initialFile, 0);
+    std::flush(std::cout);
     //============================================================
-    insertItem(DataItem(112, 54), initialFile, globalDirectory);
-    insertItem(DataItem(240, 16), initialFile, globalDirectory);
-    insertItem(DataItem(241, 99), initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    std::flush(std::cout);
-    // //============================================================
-    insertItem(DataItem(159, 30), initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    std::flush(std::cout);
-    // //============================================================
-    insertItem(DataItem(14, 45), initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    std::flush(std::cout);
-    insertItem(DataItem(13, 88), initialFile, globalDirectory);
+    // insertItem(DataItem(112, 54), initialFile, globalDirectory);
+    // insertItem(DataItem(240, 16), initialFile, globalDirectory);
+    // insertItem(DataItem(241, 99), initialFile, globalDirectory);
     // displayDirectory(globalDirectory, initialFile, 0);
-    // //============================================================
-    insertItem(DataItem(37, 1), initialFile, globalDirectory);
-    searchItem(13, initialFile, globalDirectory);
-    searchItem(37, initialFile, globalDirectory);
-    searchItem(241, initialFile, globalDirectory);
-    searchItem(12, initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    std::flush(std::cout);
-    // //============================================================
-    deleteItem(14, initialFile, globalDirectory);
-    deleteItem(13, initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    std::flush(std::cout);
-    // //============================================================
-    insertItem(DataItem(158, 5), initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    insertItem(DataItem(3, 9), initialFile, globalDirectory);
-    displayDirectory(globalDirectory, initialFile, 0);
-    std::flush(std::cout);
+    // std::flush(std::cout);
+    // // //============================================================
+    // insertItem(DataItem(159, 30), initialFile, globalDirectory);
+    // displayDirectory(globalDirectory, initialFile, 0);
+    // std::flush(std::cout);
+    // // //============================================================
+    // insertItem(DataItem(14, 45), initialFile, globalDirectory);
+    // displayDirectory(globalDirectory, initialFile, 0);
+    // std::flush(std::cout);
+    // insertItem(DataItem(13, 88), initialFile, globalDirectory);
+    // // displayDirectory(globalDirectory, initialFile, 0);
+    // // //============================================================
+    // insertItem(DataItem(37, 1), initialFile, globalDirectory);
+    // searchItem(13, initialFile, globalDirectory);
+    // searchItem(37, initialFile, globalDirectory);
+    // searchItem(241, initialFile, globalDirectory);
+    // searchItem(12, initialFile, globalDirectory);
+    // displayDirectory(globalDirectory, initialFile, 0);
+    // std::flush(std::cout);
+    // // //============================================================
+    // deleteItem(14, initialFile, globalDirectory);
+    // deleteItem(13, initialFile, globalDirectory);
+    // displayDirectory(globalDirectory, initialFile, 0);
+    // std::flush(std::cout);
+    // // //============================================================
+    // insertItem(DataItem(158, 5), initialFile, globalDirectory);
+    // displayDirectory(globalDirectory, initialFile, 0);
+    // insertItem(DataItem(3, 9), initialFile, globalDirectory);
+    // displayDirectory(globalDirectory, initialFile, 0);
+    // std::flush(std::cout);
     return 0;
 }

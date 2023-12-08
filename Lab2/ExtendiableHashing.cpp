@@ -316,11 +316,26 @@ int deleteItem(int key, Bucket &currentBucket, GlobalDirectory &globaldirectory)
 	
 	// case 1 : deleting from global directory at level 1 and shrinks back to the inital bucket
 	int hashedKey = getCurrentHash(key, globaldirectory.globalDepth);
-	if (globaldirectory.globalDepth == 1)
+	if (globaldirectory.globalDepth >= 1)
 	{
 		// loop on the bucket to find the key
-		deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
-		checkDirectoryMinimization(globaldirectory);
+		int result = deleteItemFromBucket(*globaldirectory.entry[hashedKey], key);
+		if(result) 
+		{
+			int count=0;
+			//TODO: check for less than half full bucket to merge 
+			for(int i=0 ; i<= pow(2,globaldirectory.globalDepth) ; i++)
+			{
+				if(globaldirectory.entry[i]->currentEntries <= 1)
+				{
+					count++;
+				}
+			}
+			if(count == pow(2,globaldirectory.globalDepth))
+			{
+				
+			}
+		}
 	}
 	// case 2: deleting from directory and table shrinks
 	// if (globaldirectory.globalDepth > 1)
